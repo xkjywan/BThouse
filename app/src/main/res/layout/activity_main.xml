@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lyt_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.chaychan.uikit.NoScrollViewPager
+        android:id="@+id/vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#f3f3f3" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_color" />
+
+    <com.chaychan.library.BottomBarLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:background="@color/tab_bg">
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:iconHeight="20dp"
+            app:iconNormal="@mipmap/navsousuo"
+            app:iconSelected="@mipmap/navsousuohh"
+            app:iconWidth="20dp"
+            app:itemTextSize="0dp"
+            app:openTouchBg="true"
+            app:touchDrawable="@drawable/selector_bottom_tab" />
+
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconHeight="20dp"
+            app:iconNormal="@mipmap/navscss"
+            app:iconSelected="@mipmap/navscsshh"
+            app:iconWidth="20dp"
+            app:itemTextSize="0dp"
+            app:openTouchBg="true"
+            app:textColorNormal="@color/text_grey"
+            app:textColorSelected="@color/colorPrimary"
+            app:touchDrawable="@drawable/selector_bottom_tab" />
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconHeight="20dp"
+            app:iconNormal="@mipmap/navshouc"
+            app:iconSelected="@mipmap/navshouchh"
+            app:iconWidth="20dp"
+            app:itemTextSize="0dp"
+            app:openTouchBg="true"
+            app:textColorNormal="@color/text_grey"
+            app:textColorSelected="@color/colorPrimary"
+            app:touchDrawable="@drawable/selector_bottom_tab" />
+
+        <com.chaychan.library.BottomBarItem
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:iconHeight="20dp"
+            app:iconNormal="@mipmap/navgerenzx"
+            app:iconSelected="@mipmap/navgerenzxhh"
+            app:iconWidth="20dp"
+            app:itemTextSize="0dp"
+            app:openTouchBg="true"
+            app:touchDrawable="@drawable/selector_bottom_tab" />
+
+    </com.chaychan.library.BottomBarLayout>
+
+</LinearLayout>

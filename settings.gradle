@@ -1,0 +1,1 @@
+include ':app', ':statusbar-lib', ':swipebackhelper', ':ucrop', ':library', ':uikit', ':recycleview', ':magicindicator'

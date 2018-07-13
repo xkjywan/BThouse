@@ -1,0 +1,85 @@
+<resources>
+    <style name="AppTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/SlideRightAnimation</item>
+        <item name="android:screenOrientation">portrait</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="AppTheme.Base">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+    </style>
+
+    <!--跳转动画-->
+    <style name="AnimationActivity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+    <style name="loading_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+
+    <style name="input_text_style">
+        <item name="android:textColor">#999999</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginTop">5sp</item>
+        <item name="android:layout_marginLeft">5sp</item>
+        <item name="android:padding">5sp</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+
+    <style name="line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/line_color</item>
+    </style>
+    <style name="h_line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">10dp</item>
+        <item name="android:background">@color/color_f1</item>
+    </style>
+
+    <declare-styleable name="PPDTabLayout">
+        <attr name="tabPPDIndicatorColor" format="color" />
+        <attr name="tabPPDIndicatorWeight" format="fraction"/>
+        <attr name="tabPPDIndicatorHeight" format="dimension" />
+        <attr name="tabPPDContentStart" format="dimension" />
+        <attr name="tabPPDBackground" format="reference" />
+        <attr name="tabPPDMode">
+            <enum name="scrollable" value="0" />
+            <enum name="fixed" value="1" />
+        </attr>
+        <attr name="tabPPDGravity">
+            <enum name="fill" value="0" />
+            <enum name="center" value="1" />
+        </attr>
+        <attr name="tabPPDMinWidth" format="dimension" />
+        <attr name="tabPPDMaxWidth" format="dimension" />
+        <attr name="tabPPDTextAppearance" format="reference" />
+        <attr name="tabPPDTextColor" format="color" />
+        <attr name="tabPPDSelectedTextColor" format="color" />
+        <attr name="tabPPDPaddingStart" format="dimension" />
+        <attr name="tabPPDPaddingTop" format="dimension" />
+        <attr name="tabPPDPaddingEnd" format="dimension" />
+        <attr name="tabPPDPaddingBottom" format="dimension" />
+        <attr name="tabPPDPadding" format="dimension" />
+        <attr name="tabPPDTextSize" format="dimension" />
+        <attr name="tabPPDDivideLineColor" format="color"/>
+        <attr name="tabPPDDivideLineWidth" format="dimension"/>
+        <attr name="tabPPDDivideLinePadding" format="dimension"/>
+    </declare-styleable>
+</resources>

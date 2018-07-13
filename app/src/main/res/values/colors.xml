@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#AEAEAE</color>
+    <color name="colorPrimaryDark">#AEAEAE</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="tab_bg">#F5F5F5</color>
+    <color name="selector_grey">#DDDDDD</color>
+    <color name="line_color">#d6d6d6</color>
+    <color name="color_f6">#f6f6f6</color>
+    <color name="text_color">#444444</color>
+    <color name="color_f1">#f1f1f1</color>
+    <color name="login_text_color">#398288</color>
+    <color name="text_color1">#787878</color>
+    <color name="hint_text_color">#AEAEAE</color>
+    <color name="input_text_color">#484848</color>
+    <color name="button_bg_color">#42ae3c</color>
+    <color name="title_text_color">#484848</color>
+    <color name="collect_text">#398288</color>
+    <color name="collect_key">#484848</color>
+    <color name="gray_color">#d8d8d8</color>
+    <color name="transparent">#00000000</color>
+
+
+    <color name="pull_refresh_bg">#F3F5F4</color>
+    <color name="text_color_tablayout">#EC7270</color>
+    <color name="color999999">#999999</color>
+    <color name="color_login_other">#767676</color>
+    <color name="back_ground">#F1F1F1</color>
+    <color name="color_black">#2b2b2b</color>
+    <color name="price_back">#6e6a5e</color>
+    <color name="house_color">#ec6664</color>
+
+    <color name="colorText333">#333333</color>
+    <color name="colorText666">#666666</color>
+    <color name="colorText999">#999999</color>
+    <color name="colorLine">#DFDFDF</color>
+</resources>

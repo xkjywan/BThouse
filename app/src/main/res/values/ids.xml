@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="leftImg" type="id"/>
+    <item name="rightImg" type="id"/>
+    <item name="leftTv" type="id"/>
+
+    <item name="glide_tag_id" type="id"/>
+</resources>

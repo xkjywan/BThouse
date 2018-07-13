@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PPDTabLayout">
+        <attr name="tabPPDIndicatorColor" format="color" />
+        <attr name="tabPPDIndicatorWeight" format="fraction"/>
+        <attr name="tabPPDIndicatorHeight" format="dimension" />
+        <attr name="tabPPDContentStart" format="dimension" />
+        <attr name="tabPPDBackground" format="reference" />
+        <attr name="tabPPDMode">
+            <enum name="scrollable" value="0" />
+            <enum name="fixed" value="1" />
+        </attr>
+        <attr name="tabPPDGravity">
+            <enum name="fill" value="0" />
+            <enum name="center" value="1" />
+        </attr>
+        <attr name="tabPPDMinWidth" format="dimension" />
+        <attr name="tabPPDMaxWidth" format="dimension" />
+        <attr name="tabPPDTextAppearance" format="reference" />
+        <attr name="tabPPDTextColor" format="color" />
+        <attr name="tabPPDSelectedTextColor" format="color" />
+        <attr name="tabPPDPaddingStart" format="dimension" />
+        <attr name="tabPPDPaddingTop" format="dimension" />
+        <attr name="tabPPDPaddingEnd" format="dimension" />
+        <attr name="tabPPDPaddingBottom" format="dimension" />
+        <attr name="tabPPDPadding" format="dimension" />
+        <attr name="tabPPDTextSize" format="dimension" />
+        <attr name="tabPPDDivideLineColor" format="color"/>
+        <attr name="tabPPDDivideLineWidth" format="dimension"/>
+        <attr name="tabPPDDivideLinePadding" format="dimension"/>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 收藏词条 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@drawable/dialog_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/wechat"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#49a399"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="高级筛选"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_14" />
+
+    <include layout="@layout/split_line" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_f1"
+        android:orientation="vertical"
+        android:padding="@dimen/dp_20">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:drawablePadding="@dimen/dp_20"
+            android:padding="@dimen/dp_10"
+            android:text="默认排序"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <include
+            layout="@layout/split_line"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:drawablePadding="@dimen/dp_20"
+            android:padding="@dimen/dp_10"
+            android:text="价格由高到低"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <include
+            layout="@layout/split_line"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:drawablePadding="@dimen/dp_20"
+            android:padding="@dimen/dp_10"
+            android:text="价格由低到高"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <include
+            layout="@layout/split_line"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:drawablePadding="@dimen/dp_20"
+            android:padding="@dimen/dp_10"
+            android:text="最新更新"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <include
+            layout="@layout/split_line"/>
+
+
+
+
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bg_grey"
+                android:padding="@dimen/dp_5"
+                android:layout_margin="@dimen/dp_10"
+                android:layout_gravity="center_horizontal"
+                android:text="取消"
+                android:textColor="@color/white" />
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

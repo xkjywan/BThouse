@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">冰糖房源</string>
+
+    <string name="refresh_pull_down_text">下拉推荐</string>
+    <string name="refresh_release_text">松开推荐</string>
+    <string name="refresh_ing_text">推荐中</string>
+</resources>

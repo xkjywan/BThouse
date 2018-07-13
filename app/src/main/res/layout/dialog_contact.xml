@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 收藏词条 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="15dp"
+    android:background="@drawable/dialog_bg"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    >
+
+    <TextView
+        android:id="@+id/wechat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fl_pic"
+        android:drawableLeft="@mipmap/tcweixin"
+        android:layout_margin="@dimen/dp_5"
+        android:text="微信咨询"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/sp_10" />
+
+    <include
+        layout="@layout/split_line"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fl_pic"
+        android:drawableLeft="@mipmap/tcyoujian"
+        android:layout_margin="@dimen/dp_5"
+        android:text="短信咨询"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/sp_10" />
+    <include
+        layout="@layout/split_line"/>
+
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fl_pic"
+        android:drawableLeft="@mipmap/tcdianhuazixun"
+        android:layout_margin="@dimen/dp_5"
+        android:text="电话咨询"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/sp_10" />
+    <include
+        layout="@layout/split_line"/>
+
+  <!--  <TextView
+        android:id="@+id/chat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fl_pic"
+        android:drawableLeft="@mipmap/tcweixin"
+        android:layout_margin="@dimen/dp_5"
+        android:text="在线聊天"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/sp_10" />
+    <include
+        layout="@layout/split_line"/>-->
+
+</LinearLayout>

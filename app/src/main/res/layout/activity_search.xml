@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_ground"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        >
+
+        <Button
+            android:id="@+id/bt_back"
+            android:layout_width="10dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="left"
+            android:background="@mipmap/hhleftback"
+            android:layout_marginLeft="5dp"
+            />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="35dp"
+            android:background="#F1F1F1"
+            android:layout_toRightOf="@+id/bt_back"
+            android:layout_margin="10dp"
+            android:hint="输入街区、城市或者学校名称"
+            android:textSize="@dimen/sp_12"
+            android:textColorHint="@color/hint_text_color"
+            android:padding="@dimen/dp_5"
+            android:layout_marginLeft="5dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_result"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingLeft="@dimen/dp_5"
+            android:textColor="#2b2b2b"
+            android:text="澳洲热门城市" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/result"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            />
+    </LinearLayout>
+
+</LinearLayout>
