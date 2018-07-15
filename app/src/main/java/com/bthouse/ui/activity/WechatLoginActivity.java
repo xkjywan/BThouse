@@ -16,9 +16,12 @@ import com.bthouse.mvp.view.IloginView;
 import com.bthouse.util.NetUtil;
 import com.bthouse.util.PreferenceUtils;
 import com.bthouse.util.ToastUtil;
+import com.bthouse.util.UIUtils;
 import com.bthouse.view.CustomTextView;
 import com.bthouse.view.LoadingDialog;
 import com.jude.swipbackhelper.SwipeBackHelper;
+import com.tencent.mm.opensdk.modelmsg.SendAuth;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -69,6 +72,12 @@ public class WechatLoginActivity extends BaseActivity<LoginPresenter> implements
         String userName = PreferenceUtils.getPrefString(this, USER_NAME, "");
     }
 
+
+    /**
+     * 微信登录相关
+     */
+    private IWXAPI api;
+
     @OnClick({R.id.tv_new_wechat,R.id.tv_bang_wechat})
     public void Onclick(View v) {
         switch (v.getId()) {
@@ -77,8 +86,15 @@ public class WechatLoginActivity extends BaseActivity<LoginPresenter> implements
                 finish();
                 break;
             case R.id.tv_bang_wechat:
-                LoginActivity.startActivity();
-                finish();
+                if (!App.mWxApi.isWXAppInstalled()) {
+                    UIUtils.showToast("您还未安装微信客户端");
+                    return;
+                }
+                final SendAuth.Req req = new SendAuth.Req();
+                req.scope = "snsapi_userinfo";
+                req.state = "diandi_wx_login";
+                App.mWxApi.sendReq(req);
+
                 break;
         }
     }
@@ -125,6 +141,7 @@ public class WechatLoginActivity extends BaseActivity<LoginPresenter> implements
         Intent intent = new Intent(App.getContext(), WechatLoginActivity.class);
         Bundle bundle = new Bundle();
         intent.putExtras(bundle);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         App.getContext().startActivity(intent);
     }
 

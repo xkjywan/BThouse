@@ -59,4 +59,9 @@ public class AppConfig {
 
     }
 
+    /**
+     * app_id是从微信官网申请到的合法APPid
+     */
+    public static final String APP_ID_WX = "wxb7d455178d4c8057";
+
 }

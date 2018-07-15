@@ -3,11 +3,14 @@ package com.bthouse;
 import android.app.Application;
 import android.content.Context;
 
+import com.bthouse.config.AppConfig;
 import com.bthouse.util.CrashHandler;
 import com.google.gson.Gson;
 import com.bthouse.config.ACacheKey;
 import com.bthouse.mvp.module.UserResponse;
 import com.bthouse.util.ACache;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 public class App extends Application {
     public static App ctx;
@@ -32,6 +35,9 @@ public class App extends Application {
         mCache = ACache.get(mContext, "/ACache");
         //取用户的令牌信息
         getUserBean();
+
+        //注册到微信
+        registerToWX();
 
         //打印异常日志
         CrashHandler crashHandler = CrashHandler.getInstance();
@@ -86,4 +92,15 @@ public class App extends Application {
     public void setNewVersion(int newVersion) {
         this.newVersion = newVersion;
     }
+
+
+    public static IWXAPI mWxApi;
+    private void registerToWX() {
+        //第二个参数是指你应用在微信开放平台上的AppID
+        mWxApi = WXAPIFactory.createWXAPI(this, AppConfig.APP_ID_WX, false);
+//         将该app注册到微信
+        mWxApi.registerApp(AppConfig.APP_ID_WX);
+//        }
+    }
+
 }
