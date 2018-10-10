@@ -41,7 +41,15 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
 
+        <meta-data
+            tools:replace="android:value"
+            android:name="android.support.VERSION"
+            android:value="26.0.2" />
 
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1"
+            />
 
     </application>
 
