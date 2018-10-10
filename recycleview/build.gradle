@@ -22,7 +22,7 @@ android {
     }
 
 
-    buildToolsVersion '26.0.2'
+    buildToolsVersion rootProject.ext.buildToolsVersion
 }
 
 // 打包源码jar
