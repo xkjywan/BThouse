@@ -7,9 +7,6 @@ package com.bthouse.mvp.view;
 public interface RegisterView {
     void  onFinish();
     void  onError();
-    void  onEmailCodeSuccessed();
-    void  onPhoneCodeSuccessed();
-    void  onRegisterSuccessed();
     void  onCheckCodeSuccessed();
 
 }

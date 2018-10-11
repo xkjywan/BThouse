@@ -31,9 +31,9 @@
         <activity android:name=".ui.activity.SearchActivity"/>
         <activity android:name=".ui.activity.WechatLoginActivity"/>
         <activity android:name=".ui.activity.PhoneRegistActivity"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTask"/>
         <activity android:name=".ui.activity.EmailRegistActivity"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTask"/>
         <!--<activity android:name=".ui.activity.HouseSearchResultActivity"/>-->
 
         <!--微信-->

@@ -15,7 +15,7 @@ public class AppConfig {
 
     public static String MY_CAMERA_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Camera/";
 
-    public static final String BASE_SERVER_URL = "http://www.islistings.com:81/";//BT测试地址
+    public static final String BASE_SERVER_URL = "http://wsmallapp.islistings.com/";//BT测试地址
     //public static final String BASE_SERVER_URL = "http://117.48.214.30:18080/evaluate/";//京东云
 //    public static final String BASE_SERVER_URL = "http://192.168.2.103:8080/evaluate/";
     public static final String UPDATE_VERSION_URL = "http://117.48.214.30:18080/evaluate/app/updateVersion";

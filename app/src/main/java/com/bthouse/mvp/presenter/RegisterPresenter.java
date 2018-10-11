@@ -29,7 +29,6 @@ public class RegisterPresenter extends BasePresenter<RegisterView> {
 
             @Override
             protected void onSuccess(data d) {
-                mView.onPhoneCodeSuccessed();
             }
 
             @Override
@@ -55,7 +54,6 @@ public class RegisterPresenter extends BasePresenter<RegisterView> {
 
             @Override
             protected void onSuccess(data d) {
-                mView.onEmailCodeSuccessed();
             }
 
             @Override
@@ -96,6 +94,59 @@ public class RegisterPresenter extends BasePresenter<RegisterView> {
     public void CheckcPhoneCode(String phone,String type,String code) {
 
         addSubscription(mApiService.checkPhoneCode(phone,type,code), new SubscriberCallBack<data>() {
+            @Override
+            public void onCompleted() {
+                mView.onFinish();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                mView.onError();
+            }
+
+            @Override
+            protected void onSuccess(data d) {
+                mView.onCheckCodeSuccessed();
+            }
+
+            @Override
+            protected void onError() {
+                mView.onFinish();
+            }
+
+        });
+    }
+
+    public void FindPswByEmailCode(String email,String code) {
+
+        addSubscription(mApiService.findPswByEmailCode(email,code), new SubscriberCallBack<data>() {
+            @Override
+            public void onCompleted() {
+                mView.onFinish();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                mView.onError();
+            }
+
+            @Override
+            protected void onSuccess(data d) {
+                mView.onCheckCodeSuccessed();
+            }
+
+            @Override
+            protected void onError() {
+                mView.onFinish();
+            }
+
+        });
+    }
+
+
+    public void FindPswByPhoneCode(String phone,String type,String code) {
+
+        addSubscription(mApiService.findPswByPhoneCode(phone,type,code), new SubscriberCallBack<data>() {
             @Override
             public void onCompleted() {
                 mView.onFinish();

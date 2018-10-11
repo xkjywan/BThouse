@@ -61,16 +61,14 @@ public class LoginActivity extends BaseActivity<ILoginPresenter> implements Logi
             public void OnLeftImgClick() {
                 super.OnLeftImgClick();
                 finish();
-//                overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left);
             }
 
             @Override
             public void OnRightTvClick() {
                 super.OnRightTvClick();
                 //注册
-                PhoneRegistActivity.startActivity();
+                PhoneRegistActivity.startActivity(true);
                 finish();
-//                overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left);
             }
         });
     }
@@ -93,8 +91,8 @@ public class LoginActivity extends BaseActivity<ILoginPresenter> implements Logi
                     ToastUtil.show(this, "请输入用户名");
                     return;
                 }
-                if (null == userPwd || userPwd.length() < 6) {
-                    ToastUtil.show(this, "请输入6－12位用户密码");
+                if (null == userPwd || userPwd.equals(" ")) {
+                    ToastUtil.show(this, "请输入密码");
                     return;
                 }
 
@@ -105,7 +103,7 @@ public class LoginActivity extends BaseActivity<ILoginPresenter> implements Logi
                 break;
 
             case R.id.tv_forget_passward:
-
+                PhoneRegistActivity.startActivity(false);
                 break;
             case R.id.tv_wechat:
                 //微信登录

@@ -49,7 +49,7 @@ public class CheckUtil {
 		return false;
 	}
 
-	public static boolean checkNumber(Object phoneNumber) {
+	public static boolean checkPhoneNumber(Object phoneNumber) {
 		boolean isValid = false;
 		String expression = "^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{5})$";
 		String expression2 = "^\\(?(\\d{3})\\)?[- ]?(\\d{4})[- ]?(\\d{4})$";

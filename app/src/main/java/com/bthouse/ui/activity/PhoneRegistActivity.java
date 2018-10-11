@@ -32,7 +32,7 @@ import butterknife.OnClick;
 
 
 /**
- * 手机注册界面
+ * 手机注册界面，找回密码界面
  */
 
 public class PhoneRegistActivity extends BaseActivity<RegisterPresenter> implements RegisterView {
@@ -53,6 +53,7 @@ public class PhoneRegistActivity extends BaseActivity<RegisterPresenter> impleme
 
 
     private Handler handler;
+    private boolean isRegister;
 
     @Override
     protected RegisterPresenter createPresenter() {
@@ -66,6 +67,10 @@ public class PhoneRegistActivity extends BaseActivity<RegisterPresenter> impleme
 
     @Override
     public void initView() {
+
+        //业务状态　注册　找回密码
+        isRegister = getIntent().getBooleanExtra("isRegister",false);
+
         SwipeBackHelper.getCurrentPage(this)
                 .setSwipeBackEnable(false);
         customTextView.setOnTextViewClickListener(new CustomTextView.OnTextViewClickListener(){
@@ -128,24 +133,38 @@ public class PhoneRegistActivity extends BaseActivity<RegisterPresenter> impleme
     }
 
     private int number = 60;
-    @OnClick({R.id.bt_next,R.id.getcode,R.id.et_code,R.id.et_username,R.id.tv_regist_change})
+    @OnClick({R.id.bt_next,R.id.getcode,R.id.et_username,R.id.tv_regist_change})
     public void Onclick(View v) {
         switch (v.getId()) {
             case R.id.bt_next:
                 //验证验证码成功后跳转
+                if(CheckUtil.checkPhoneNumber(et_username.getText())){
+                    if (isRegister){
+                        mPresenter.CheckcPhoneCode(et_username.getText().toString(),"+86",et_code.getText().toString());
+                    }else{
+                        mPresenter.FindPswByPhoneCode(et_username.getText().toString(),"+86",et_code.getText().toString());
+                    }
 
-
+                }else{
+                    ToastUtil.show(this,"请输入正确的手机号");
+                }
 
                 break;
-
             case R.id.getcode:
-                Timer timer = new Timer();
+                if(!CheckUtil.checkPhoneNumber(et_username.getText())){
+
+                    ToastUtil.show(this,"请输入正确的手机号");
+                    return;
+                }
+
+                final Timer timer = new Timer();
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
                         Message msg = new Message();
                         if (number == 0) {
                             msg.what = 3;
+                            timer.cancel();
                         } else {
                             msg.what = 2;
                             msg.obj = number;
@@ -154,21 +173,14 @@ public class PhoneRegistActivity extends BaseActivity<RegisterPresenter> impleme
                         handler.sendMessage(msg);
                     }
                 }, 0, 1000);
-                if (CheckUtil.checkEmail(et_username.getText())){
-                    mPresenter.getEmailCode(et_username.getText().toString());
-                }else if(CheckUtil.checkNumber(et_username.getText())){
                     mPresenter.getPhoneCode(et_username.getText().toString(),"+86");
-                 }
-                break;
-            case R.id.et_code:
-
 
                 break;
+
             case R.id.tv_regist_change:
                 //切换注册方式
-                EmailRegistActivity.startActivity();
+                EmailRegistActivity.startActivity(isRegister);
                 break;
-
 
         }
     }
@@ -185,23 +197,9 @@ public class PhoneRegistActivity extends BaseActivity<RegisterPresenter> impleme
             ToastUtil.show(PhoneRegistActivity.this,"网络异常");
             return;
         }
-        ToastUtil.show(PhoneRegistActivity.this, "登陆失败");
+        ToastUtil.show(PhoneRegistActivity.this, "失败");
     }
 
-    @Override
-    public void onEmailCodeSuccessed() {
-
-    }
-
-    @Override
-    public void onPhoneCodeSuccessed() {
-
-    }
-
-    @Override
-    public void onRegisterSuccessed() {
-
-    }
 
     @Override
     public void onCheckCodeSuccessed() {
@@ -211,8 +209,9 @@ public class PhoneRegistActivity extends BaseActivity<RegisterPresenter> impleme
     }
 
 
-    public static void startActivity() {
+    public static void startActivity(boolean isRegister) {
         Intent intent = new Intent(App.getContext(), PhoneRegistActivity.class);
+        intent.putExtra("isRegister",isRegister);
         App.getContext().startActivity(intent);
     }
 

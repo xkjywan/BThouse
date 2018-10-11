@@ -55,6 +55,24 @@ public interface ApiService {
     );
 
 
+    //邮箱找回密码　　/index.php?g=api&m=User&a=email_find
+    @FormUrlEncoded
+    @POST("index.php?g=api&m=User&a=email_find")
+    Observable<ResultResponse<ResultResponse<Object>>> findPswByEmailCode(
+            @Field("user_email") String user_email,
+            @Field("email_code") String email_code
+    );
+
+    //电话找回密码　/index.php?g=api&m=Home&a=check_reg_phone
+    @FormUrlEncoded
+    @POST("/index.php?g=api&m=User&a=phone_find")
+    Observable<ResultResponse<ResultResponse<Object>>> findPswByPhoneCode(
+            @Field("phone") String phone,
+            @Field("phone_type") String phone_type,
+            @Field("phone_code") String phone_code
+    );
+
+
     //邮箱注册
     @FormUrlEncoded
     @POST("index.php?g=Api&m=Api&a=login")
