@@ -23,7 +23,7 @@ import butterknife.Bind;
 import butterknife.OnClick;
 
 /**
- * 设置密码
+ * 设置密码,昵称
  */
 public class SetPswActivity extends BaseActivity<LoginPresenter> implements IloginView {
     @Bind(R.id.et_username)
@@ -145,9 +145,16 @@ public class SetPswActivity extends BaseActivity<LoginPresenter> implements Ilog
         }
     }
 
-    public static void startActivity() {
+    /**
+     *
+     * @param type  注册类型
+     * @param username　注册用户名
+     */
+    public static void startActivity(String type,String username) {
         Intent intent = new Intent(App.getContext(), SetPswActivity.class);
         Bundle bundle = new Bundle();
+        bundle.putString("type",type);
+        bundle.putString("username",username);
         intent.putExtras(bundle);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         App.getContext().startActivity(intent);

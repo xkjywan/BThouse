@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.bthouse.App;
 import com.bthouse.MainActivity;
 import com.bthouse.R;
+import com.bthouse.config.ToastMsgConfig;
 import com.bthouse.mvp.module.IloginMoudle;
 import com.bthouse.mvp.module.UserResponse;
 import com.bthouse.mvp.presenter.ILoginPresenter;
@@ -38,8 +39,6 @@ public class LoginActivity extends BaseActivity<ILoginPresenter> implements Logi
     @Bind(R.id.tv_wechat)
     TextView tv_wechat;
 
-    public LoadingDialog mLoadingDialog;
-
     //记录默认的帐号
     private static String USER_NAME = "user_name_key";
 
@@ -62,16 +61,14 @@ public class LoginActivity extends BaseActivity<ILoginPresenter> implements Logi
             public void OnLeftImgClick() {
                 super.OnLeftImgClick();
                 finish();
-//                overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left);
             }
 
             @Override
             public void OnRightTvClick() {
                 super.OnRightTvClick();
                 //注册
-                RegistActivity.startActivity();
+                PhoneRegistActivity.startActivity(true);
                 finish();
-//                overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left);
             }
         });
     }
@@ -79,7 +76,6 @@ public class LoginActivity extends BaseActivity<ILoginPresenter> implements Logi
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mLoadingDialog = new LoadingDialog(LoginActivity.this, "");
         String userName = PreferenceUtils.getPrefString(this, USER_NAME, "");
         mEtUsername.setText(userName);
         mEtUsername.setSelection(userName.length());//将光标移至文字末尾
@@ -89,30 +85,25 @@ public class LoginActivity extends BaseActivity<ILoginPresenter> implements Logi
     public void Onclick(View v) {
         switch (v.getId()) {
             case R.id.tv_login:
-
-                /*MainActivity.startActivity(this);
-                finish();
-                overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left);*/
-
-
-                /*String userName = mEtUsername.getText().toString().trim();
+                String userName = mEtUsername.getText().toString().trim();
                 String userPwd = mEtPassword.getText().toString().trim();
-                if (null == userName || userName.length() < 3) {
+                if (null == userName ||userName.equals(" ")){
                     ToastUtil.show(this, "请输入用户名");
                     return;
                 }
-                if (null == userPwd || userPwd.length() < 6) {
-                    ToastUtil.show(this, "请输入用户密码6－12位");
+                if (null == userPwd || userPwd.equals(" ")) {
+                    ToastUtil.show(this, "请输入密码");
                     return;
                 }
-                if (mLoadingDialog != null)
-                    mLoadingDialog.show();
-                mPresenter.login(userName, userPwd);*/
-                mPresenter.login("123656354","13324234");
+
+                
+                if (loadingDialog != null)
+                    loadingDialog.show();
+                mPresenter.login(userName, userPwd);
                 break;
 
             case R.id.tv_forget_passward:
-
+                PhoneRegistActivity.startActivity(false);
                 break;
             case R.id.tv_wechat:
                 //微信登录
@@ -123,20 +114,19 @@ public class LoginActivity extends BaseActivity<ILoginPresenter> implements Logi
 
     @Override
     public void onFinish() {
-        if (mLoadingDialog != null)
-            mLoadingDialog.dismiss();
+        if (loadingDialog != null)
+            loadingDialog.dismiss();
     }
 
     @Override
     public void onError() {
-        if (mLoadingDialog != null)
-            mLoadingDialog.dismiss();
+        if (loadingDialog != null)
+            loadingDialog.dismiss();
         if(!NetUtil.isConnected(LoginActivity.this)){
-            ToastUtil.show(LoginActivity.this,"网络异常");
+            ToastUtil.show(LoginActivity.this,ToastMsgConfig.net_error);
             return;
         }
         ToastUtil.show(LoginActivity.this, "登陆失败");
-
 
     }
 

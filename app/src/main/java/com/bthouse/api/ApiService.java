@@ -37,13 +37,48 @@ public interface ApiService {
             @Field("email") String email
     );
 
+    //验证邮箱验证码　　/index.php?g=api&m=Home&a=check_reg_email
+    @FormUrlEncoded
+    @POST("index.php?g=api&m=Home&a=check_reg_email")
+    Observable<ResultResponse<ResultResponse<Object>>> checkEmailCode(
+            @Field("user_email") String user_email,
+            @Field("email_code") String email_code
+    );
+
+    //验证电话验证码　/index.php?g=api&m=Home&a=check_reg_phone
+    @FormUrlEncoded
+    @POST("index.php?g=api&m=Home&a=check_reg_phone")
+    Observable<ResultResponse<ResultResponse<Object>>> checkPhoneCode(
+            @Field("phone") String phone,
+            @Field("phone_type") String phone_type,
+            @Field("phone_code") String phone_code
+    );
+
+
+    //邮箱找回密码　　/index.php?g=api&m=User&a=email_find
+    @FormUrlEncoded
+    @POST("index.php?g=api&m=User&a=email_find")
+    Observable<ResultResponse<ResultResponse<Object>>> findPswByEmailCode(
+            @Field("user_email") String user_email,
+            @Field("email_code") String email_code
+    );
+
+    //电话找回密码　/index.php?g=api&m=Home&a=check_reg_phone
+    @FormUrlEncoded
+    @POST("/index.php?g=api&m=User&a=phone_find")
+    Observable<ResultResponse<ResultResponse<Object>>> findPswByPhoneCode(
+            @Field("phone") String phone,
+            @Field("phone_type") String phone_type,
+            @Field("phone_code") String phone_code
+    );
+
 
     //邮箱注册
     @FormUrlEncoded
     @POST("index.php?g=Api&m=Api&a=login")
 //    @POST("index.php")
     /* Call<ResponseBody> getWeather(@Query("ip") String ip);*/
-    Observable<ResultResponse<ResultResponse<String>>> register(
+    Observable<ResultResponse<String>> register(
             @Field("user_email") String user_email,
             @Field("email_code") String email_code,
             @Field("user_pass") String user_pass,

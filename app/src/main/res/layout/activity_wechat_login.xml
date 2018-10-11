@@ -16,7 +16,7 @@
         android:layout_alignParentTop="true"
         android:background="@color/white"
         app:centerTvColor="@color/login_text_color"
-        app:centerTvSize="@dimen/sp_14"
+        app:centerTvSize="@dimen/sp_18"
         app:centerTvString="微信登陆"
         app:leftImg="@mipmap/hhleftback"
         app:leftImgMarginleft="@dimen/dp_20"
@@ -62,7 +62,7 @@
             android:gravity="center"
             android:text="创建新账号"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_16" />
+            android:textSize="@dimen/sp_20" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,7 +70,7 @@
             android:text="或者"
             android:layout_margin="@dimen/dp_20"
             android:layout_gravity="center"
-            android:textSize="@dimen/sp_12"
+            android:textSize="@dimen/sp_16"
             android:textColor="#767676"/>
 
         <TextView
@@ -81,7 +81,7 @@
             android:gravity="center"
             android:text="绑定已有账号"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_16" />
+            android:textSize="@dimen/sp_20" />
     </LinearLayout>
 
 

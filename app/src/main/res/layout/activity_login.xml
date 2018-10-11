@@ -17,11 +17,11 @@
         android:background="@color/white"
         app:leftImg="@mipmap/hhleftback"
         app:rightTvString="注册"
-        app:rightTvSize="@dimen/sp_12"
+        app:rightTvSize="@dimen/sp_16"
         app:leftImgMarginleft="@dimen/dp_20"
         app:rightTvMarginright="@dimen/dp_20"
         app:centerTvColor="@color/login_text_color"
-        app:centerTvSize="@dimen/sp_14"
+        app:centerTvSize="@dimen/sp_18"
         app:centerTvString="登陆" />
 
     <include layout="@layout/split_line" />
@@ -86,7 +86,7 @@
             android:gravity="center"
             android:text="登录"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_12" />
+            android:textSize="@dimen/sp_16" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -132,7 +132,7 @@
             android:paddingLeft="5dp"
             android:text="微信登录"
             android:gravity="center"
-            android:textSize="@dimen/sp_12"
+            android:textSize="@dimen/sp_16"
             android:textColor="@color/button_bg_color"
             android:background="@drawable/button_coner_bg"/>
 

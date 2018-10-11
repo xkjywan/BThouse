@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import com.bthouse.App;
 import com.bthouse.R;
 import com.bthouse.mvp.presenter.RegisterPresenter;
@@ -22,12 +23,18 @@ import com.bthouse.util.NetUtil;
 import com.bthouse.util.ToastUtil;
 import com.bthouse.view.CustomTextView;
 import com.jude.swipbackhelper.SwipeBackHelper;
+
 import java.util.Timer;
 import java.util.TimerTask;
+
 import butterknife.Bind;
 import butterknife.OnClick;
 
-public class RegistActivity extends BaseActivity<RegisterPresenter> implements RegisterView {
+
+/**
+ * 邮箱注册页面
+ */
+public class EmailRegistActivity extends BaseActivity<RegisterPresenter> implements RegisterView {
     @Bind(R.id.et_username)
     EditText et_username;
 
@@ -44,6 +51,7 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
     Button bt_next;
 
     private Handler handler;
+    private boolean isRegister;
 
     @Override
     protected RegisterPresenter createPresenter() {
@@ -52,11 +60,16 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
 
     @Override
     protected int provideContentViewId() {
-        return R.layout.activity_regist;
+        return R.layout.activity_email_regist;
     }
 
     @Override
     public void initView() {
+
+        //业务状态　注册　找回密码
+        isRegister = getIntent().getBooleanExtra("isRegister",false);
+
+
         SwipeBackHelper.getCurrentPage(this)
                 .setSwipeBackEnable(false);
         customTextView.setOnTextViewClickListener(new CustomTextView.OnTextViewClickListener(){
@@ -80,9 +93,8 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
                     getcode.setClickable(true);
                     getcode.setTextColor(Color.parseColor("#71AAF7"));
                     getcode.setText("重新获取");
-//                    tv_forgetpsw.setText("收不到短信验证码？语音获取验证码");
                 } else if (msg.what == 4){
-//                    iv_code.setImageBitmap(bit);
+
                 }
                 return false;
             }
@@ -116,36 +128,41 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     private int number = 60;
-    @OnClick({R.id.bt_next,R.id.getcode,R.id.et_code,R.id.et_username})
+    @OnClick({R.id.bt_next,R.id.getcode,R.id.et_username,R.id.tv_regist_change})
     public void Onclick(View v) {
         switch (v.getId()) {
             case R.id.bt_next:
                 //验证验证码成功后跳转
-                if (CheckUtil.checkEmail(et_username.getText())){
+                if (!CheckUtil.checkEmail(et_username.getText())){
                     //邮件验证码
-
-
+                    ToastUtil.show(this,"请输入正确的邮箱");
+                    return;
                 }else{
-                    //电话验证码
-
-
+                    if (isRegister){
+                        mPresenter.CheckcEmailCode(et_username.getText().toString(),et_code.getText().toString());
+                    }else{
+                        mPresenter.FindPswByEmailCode(et_username.getText().toString(),et_code.getText().toString());
+                    }
                 }
-
-
-
                 break;
 
             case R.id.getcode:
-                Timer timer = new Timer();
+                if(!CheckUtil.checkEmail(et_username.getText())){
+                    ToastUtil.show(this,"请输入正确的邮箱");
+                    return;
+                }
+                final Timer timer = new Timer();
                 timer.schedule(new TimerTask() {
                     @Override
                     public void run() {
                         Message msg = new Message();
                         if (number == 0) {
                             msg.what = 3;
+                            timer.cancel();
                         } else {
                             msg.what = 2;
                             msg.obj = number;
@@ -154,15 +171,13 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
                         handler.sendMessage(msg);
                     }
                 }, 0, 1000);
-                if (CheckUtil.checkEmail(et_username.getText())){
-                    mPresenter.getEmailCode(et_username.getText().toString());
-                }else if(CheckUtil.checkPhoneNumber(et_username.getText())){
-                    mPresenter.getPhoneCode(et_username.getText().toString(),"+86");
-                 }
+
+                mPresenter.getEmailCode(et_username.getText().toString());
                 break;
-            case R.id.et_code:
 
-
+            case R.id.tv_regist_change:
+                //切换注册方式
+                PhoneRegistActivity.startActivity(isRegister);
                 break;
 
         }
@@ -176,13 +191,12 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
     @Override
     public void onError() {
         hidingLoading();
-        if(!NetUtil.isConnected(RegistActivity.this)){
-            ToastUtil.show(RegistActivity.this,"网络异常");
+        if(!NetUtil.isConnected(EmailRegistActivity.this)){
+            ToastUtil.show(EmailRegistActivity.this,"网络异常");
             return;
         }
-        ToastUtil.show(RegistActivity.this, "登陆失败");
+        ToastUtil.show(EmailRegistActivity.this, "登陆失败");
     }
-
 
 
     @Override
@@ -193,11 +207,9 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
     }
 
 
-    public static void startActivity() {
-        Intent intent = new Intent(App.getContext(), RegistActivity.class);
-        Bundle bundle = new Bundle();
-        intent.putExtras(bundle);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    public static void startActivity(boolean isRegister) {
+        Intent intent = new Intent(App.getContext(), EmailRegistActivity.class);
+        intent.putExtra("isRegister",isRegister);
         App.getContext().startActivity(intent);
     }
 

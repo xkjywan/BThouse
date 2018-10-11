@@ -19,7 +19,7 @@
         app:leftImgMarginleft="@dimen/dp_20"
         app:rightTvMarginright="@dimen/dp_20"
         app:centerTvColor="@color/login_text_color"
-        app:centerTvSize="@dimen/sp_14"
+        app:centerTvSize="@dimen/sp_18"
         app:centerTvString="设置密码" />
 
     <include layout="@layout/split_line" />
@@ -37,14 +37,16 @@
         android:layout_height="wrap_content"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
+
         android:orientation="vertical">
 
         <android.support.design.widget.TextInputLayout
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.bthouse.view.ClearEditText
-                android:id="@+id/et_username"
+            <EditText
+                android:id="@+id/et_psw"
                 style="@style/input_text_style"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -59,11 +61,12 @@
         <include layout="@layout/split_line" />
 
         <android.support.design.widget.TextInputLayout
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.bthouse.view.ClearEditText
-                android:id="@+id/et_passward"
+            <EditText
+                android:id="@+id/et_psw_confirm"
                 style="@style/input_text_style"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -78,10 +81,11 @@
         <include layout="@layout/split_line" />
 
         <android.support.design.widget.TextInputLayout
+            android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.bthouse.view.ClearEditText
+            <EditText
                 android:id="@+id/et_nickname"
                 style="@style/input_text_style"
                 android:layout_width="fill_parent"
@@ -96,7 +100,6 @@
 
         <include layout="@layout/split_line" />
 
-        <include layout="@layout/split_line" />
 
         <TextView
             android:id="@+id/tv_login"
@@ -107,7 +110,7 @@
             android:gravity="center"
             android:text="确定"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_16" />
+            android:textSize="@dimen/sp_20" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -125,8 +128,4 @@
                 android:visibility="gone"/>
         </RelativeLayout>
     </LinearLayout>
-
-
-
-
 </LinearLayout>

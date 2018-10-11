@@ -29,7 +29,6 @@ public class RegisterPresenter extends BasePresenter<RegisterView> {
 
             @Override
             protected void onSuccess(data d) {
-                mView.onPhoneCodeSuccessed();
             }
 
             @Override
@@ -55,7 +54,112 @@ public class RegisterPresenter extends BasePresenter<RegisterView> {
 
             @Override
             protected void onSuccess(data d) {
-                mView.onEmailCodeSuccessed();
+            }
+
+            @Override
+            protected void onError() {
+                mView.onFinish();
+            }
+
+        });
+    }
+
+    public void CheckcEmailCode(String email,String code) {
+
+        addSubscription(mApiService.checkEmailCode(email,code), new SubscriberCallBack<data>() {
+            @Override
+            public void onCompleted() {
+                mView.onFinish();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                mView.onError();
+            }
+
+            @Override
+            protected void onSuccess(data d) {
+                mView.onCheckCodeSuccessed();
+            }
+
+            @Override
+            protected void onError() {
+                mView.onFinish();
+            }
+
+        });
+    }
+
+    //phone_type  是  手机号区域  +86（中国），+61（澳大利亚）
+    public void CheckcPhoneCode(String phone,String type,String code) {
+
+        addSubscription(mApiService.checkPhoneCode(phone,type,code), new SubscriberCallBack<data>() {
+            @Override
+            public void onCompleted() {
+                mView.onFinish();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                mView.onError();
+            }
+
+            @Override
+            protected void onSuccess(data d) {
+                mView.onCheckCodeSuccessed();
+            }
+
+            @Override
+            protected void onError() {
+                mView.onFinish();
+            }
+
+        });
+    }
+
+    public void FindPswByEmailCode(String email,String code) {
+
+        addSubscription(mApiService.findPswByEmailCode(email,code), new SubscriberCallBack<data>() {
+            @Override
+            public void onCompleted() {
+                mView.onFinish();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                mView.onError();
+            }
+
+            @Override
+            protected void onSuccess(data d) {
+                mView.onCheckCodeSuccessed();
+            }
+
+            @Override
+            protected void onError() {
+                mView.onFinish();
+            }
+
+        });
+    }
+
+
+    public void FindPswByPhoneCode(String phone,String type,String code) {
+
+        addSubscription(mApiService.findPswByPhoneCode(phone,type,code), new SubscriberCallBack<data>() {
+            @Override
+            public void onCompleted() {
+                mView.onFinish();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                mView.onError();
+            }
+
+            @Override
+            protected void onSuccess(data d) {
+                mView.onCheckCodeSuccessed();
             }
 
             @Override

@@ -38,7 +38,6 @@ public class ApiRetrofit {
             public void log(String message) {
                 Log.d("OK_HTTP", "OkHttp====Message:" + message);
             }
-
         });
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -110,7 +109,6 @@ public class ApiRetrofit {
         //初始化 retrofit;
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(AppConfig.BASE_SERVER_URL)
-
                 .client(client)
                 //重要，带文件 提交表单时，需要;
                 .addConverterFactory(ScalarsConverterFactory.create())

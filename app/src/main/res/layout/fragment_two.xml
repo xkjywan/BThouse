@@ -15,7 +15,7 @@
         android:background="@color/white"
         app:rightTvMarginright="@dimen/dp_20"
         app:centerTvColor="@color/login_text_color"
-        app:centerTvSize="@dimen/sp_14"
+        app:centerTvSize="@dimen/sp_18"
         app:centerTvString="已保存的搜索"
         />
 

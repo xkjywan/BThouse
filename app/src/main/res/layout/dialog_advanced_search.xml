@@ -16,7 +16,7 @@
         android:textColor="@color/white"
         android:padding="@dimen/dp_10"
         android:background="#49a399"
-        android:textSize="@dimen/sp_14" />
+        android:textSize="@dimen/sp_18" />
 
     <include
         layout="@layout/split_line"/>

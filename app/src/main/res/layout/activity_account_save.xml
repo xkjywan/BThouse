@@ -20,7 +20,7 @@
         app:leftImgHeight="@dimen/dp_20"
         app:leftImgWight="@dimen/dp_20"
         app:centerTvColor="@color/title_text_color"
-        app:centerTvSize="@dimen/sp_14"
+        app:centerTvSize="@dimen/sp_18"
         app:centerTvString="账号与安全" />
 
     <include layout="@layout/split_line" />
@@ -38,12 +38,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_18"
             android:text="手机号"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_18"
             android:text="1302349898"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -67,12 +67,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_18"
             android:text="邮箱"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_18"
             android:text="未绑定邮箱"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -95,12 +95,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_18"
             android:text="微信登陆"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_18"
             android:text="微信号"/>
         <ImageView
             android:layout_width="wrap_content"
@@ -123,7 +123,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_18"
             android:text="修改密码"/>
         <ImageView
             android:layout_width="wrap_content"
