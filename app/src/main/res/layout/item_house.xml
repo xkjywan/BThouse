@@ -26,7 +26,7 @@
             android:padding="@dimen/dp_5"
             android:text="$230/周"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_10" />
+            android:textSize="@dimen/sp_12" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
             android:padding="@dimen/dp_5"
             android:text="已付定金"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_10" />
+            android:textSize="@dimen/sp_12" />
     </FrameLayout>
 
     <TextView
@@ -48,7 +48,7 @@
         android:layout_margin="@dimen/dp_5"
         android:text="Sunnybank独立卫浴主卧出租"
         android:textColor="@color/color_black"
-        android:textSize="@dimen/sp_10" />
+        android:textSize="@dimen/sp_12" />
 
     <TextView
         android:id="@+id/tv_house_note"
@@ -58,7 +58,7 @@
         android:layout_margin="@dimen/dp_5"
         android:text="House | 4卧室2卫浴1车位 | 出租"
         android:textColor="@color/text_grey"
-        android:textSize="@dimen/sp_10" />
+        android:textSize="@dimen/sp_12" />
 
     <TextView
         android:id="@+id/et_username"

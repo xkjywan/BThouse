@@ -17,7 +17,7 @@
         android:layout_marginTop="@dimen/dp_5"
         android:text="2 Bedroom Apartment"
         android:textColor="@color/color_black"
-        android:textSize="@dimen/sp_10" />
+        android:textSize="@dimen/sp_12" />
 
 
 
@@ -86,7 +86,7 @@
         android:layout_margin="@dimen/dp_5"
         android:text="现有空房，接受预定中"
         android:textColor="@color/color_black"
-        android:textSize="@dimen/sp_10" />
+        android:textSize="@dimen/sp_12" />
 
     <TextView
         android:id="@+id/tv_house_price"
@@ -97,7 +97,7 @@
         android:layout_below="@+id/tv_house_name"
         android:text="$299/周起"
         android:textColor="@color/color_black"
-        android:textSize="@dimen/sp_10" />
+        android:textSize="@dimen/sp_12" />
 
     <Button
         android:id="@+id/et_username"

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.bthouse.R;
 import com.bthouse.util.DensityUtil;
 
@@ -81,6 +82,7 @@ public class CustomTextView extends RelativeLayout {
         this.mContext = context;
         initAttr(attrs);
         initLayout();
+        setLeftImg(context.getResources().getDrawable(R.mipmap.hhleftback));
         this.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -402,7 +404,7 @@ public class CustomTextView extends RelativeLayout {
         rightIV.setLayoutParams(rightIVParams);
         rightIV.setImageDrawable(rightImgRes);
         //优化点击区域，小刀刀 2017-04-13
-        rightIV.setPadding(15, 5, 5, 5);
+        rightIV.setPadding(10, 2, 2, 2);
 
         rightIV.setOnClickListener(new OnClickListener() {
             @Override

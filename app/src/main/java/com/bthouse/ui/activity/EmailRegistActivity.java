@@ -13,8 +13,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import com.bthouse.App;
 import com.bthouse.R;
+import com.bthouse.config.ToastMsgConfig;
 import com.bthouse.mvp.presenter.RegisterPresenter;
 import com.bthouse.mvp.view.RegisterView;
 import com.bthouse.util.CheckUtil;
@@ -22,12 +24,18 @@ import com.bthouse.util.NetUtil;
 import com.bthouse.util.ToastUtil;
 import com.bthouse.view.CustomTextView;
 import com.jude.swipbackhelper.SwipeBackHelper;
+
 import java.util.Timer;
 import java.util.TimerTask;
+
 import butterknife.Bind;
 import butterknife.OnClick;
 
-public class RegistActivity extends BaseActivity<RegisterPresenter> implements RegisterView {
+
+/**
+ * 邮箱注册页面
+ */
+public class EmailRegistActivity extends BaseActivity<RegisterPresenter> implements RegisterView {
     @Bind(R.id.et_username)
     EditText et_username;
 
@@ -52,7 +60,7 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
 
     @Override
     protected int provideContentViewId() {
-        return R.layout.activity_regist;
+        return R.layout.activity_email_regist;
     }
 
     @Override
@@ -119,18 +127,17 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
     }
 
     private int number = 60;
-    @OnClick({R.id.bt_next,R.id.getcode,R.id.et_code,R.id.et_username})
+    @OnClick({R.id.bt_next,R.id.getcode,R.id.et_code,R.id.et_username,R.id.tv_regist_change})
     public void Onclick(View v) {
         switch (v.getId()) {
             case R.id.bt_next:
                 //验证验证码成功后跳转
-                if (CheckUtil.checkEmail(et_username.getText())){
+                if (!CheckUtil.checkEmail(et_username.getText())){
                     //邮件验证码
-
-
+                    ToastUtil.show(this,"请输入正确的邮箱");
+                    return;
                 }else{
-                    //电话验证码
-
+                    //验证邮箱
 
                 }
 
@@ -164,6 +171,10 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
 
 
                 break;
+            case R.id.tv_regist_change:
+                //切换注册方式
+                PhoneRegistActivity.startActivity();
+                break;
 
         }
     }
@@ -176,11 +187,11 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
     @Override
     public void onError() {
         hidingLoading();
-        if(!NetUtil.isConnected(RegistActivity.this)){
-            ToastUtil.show(RegistActivity.this,"网络异常");
+        if(!NetUtil.isConnected(EmailRegistActivity.this)){
+            ToastUtil.show(EmailRegistActivity.this,"网络异常");
             return;
         }
-        ToastUtil.show(RegistActivity.this, "登陆失败");
+        ToastUtil.show(EmailRegistActivity.this, "登陆失败");
     }
 
     @Override
@@ -207,10 +218,7 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
 
 
     public static void startActivity() {
-        Intent intent = new Intent(App.getContext(), RegistActivity.class);
-        Bundle bundle = new Bundle();
-        intent.putExtras(bundle);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent intent = new Intent(App.getContext(), EmailRegistActivity.class);
         App.getContext().startActivity(intent);
     }
 

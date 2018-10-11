@@ -7,9 +7,9 @@
     <application
         android:name="com.bthouse.App"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/denglubt"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/ic_launcher"
+        android:roundIcon="@drawable/denglubt"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.bthouse.ui.activity.SplashActivity">
@@ -30,6 +30,10 @@
 
         <activity android:name=".ui.activity.SearchActivity"/>
         <activity android:name=".ui.activity.WechatLoginActivity"/>
+        <activity android:name=".ui.activity.PhoneRegistActivity"
+            android:launchMode="singleTop"/>
+        <activity android:name=".ui.activity.EmailRegistActivity"
+            android:launchMode="singleTop"/>
         <!--<activity android:name=".ui.activity.HouseSearchResultActivity"/>-->
 
         <!--微信-->

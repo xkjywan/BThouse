@@ -15,7 +15,7 @@
         android:padding="@dimen/dp_10"
         android:text="高级筛选"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp_14" />
+        android:textSize="@dimen/sp_18" />
 
     <include layout="@layout/split_line" />
 

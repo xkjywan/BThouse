@@ -10,5 +10,6 @@ public interface RegisterView {
     void  onEmailCodeSuccessed();
     void  onPhoneCodeSuccessed();
     void  onRegisterSuccessed();
+    void  onCheckCodeSuccessed();
 
 }

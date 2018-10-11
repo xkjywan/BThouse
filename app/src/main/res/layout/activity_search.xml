@@ -30,7 +30,7 @@
             android:layout_toRightOf="@+id/bt_back"
             android:layout_margin="10dp"
             android:hint="输入街区、城市或者学校名称"
-            android:textSize="@dimen/sp_12"
+            android:textSize="@dimen/sp_16"
             android:textColorHint="@color/hint_text_color"
             android:padding="@dimen/dp_5"
             android:layout_marginLeft="5dp"

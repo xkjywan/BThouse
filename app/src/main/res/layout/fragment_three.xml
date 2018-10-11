@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true"
         android:background="@color/white"
         app:centerTvColor="@color/login_text_color"
-        app:centerTvSize="@dimen/sp_14"
+        app:centerTvSize="@dimen/sp_18"
         app:centerTvString="收藏的房屋"
         app:rightTvMarginright="@dimen/dp_20" />
 
