@@ -183,20 +183,7 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
         ToastUtil.show(RegistActivity.this, "登陆失败");
     }
 
-    @Override
-    public void onEmailCodeSuccessed() {
 
-    }
-
-    @Override
-    public void onPhoneCodeSuccessed() {
-
-    }
-
-    @Override
-    public void onRegisterSuccessed() {
-
-    }
 
     @Override
     public void onCheckCodeSuccessed() {
