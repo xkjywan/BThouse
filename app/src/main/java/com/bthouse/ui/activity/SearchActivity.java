@@ -68,7 +68,7 @@ public class SearchActivity extends BaseActivity<LoginPresenter> implements Ilog
         cityAdapter.setOnItemClickLitener(new OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-//                HouseSearchResultActivity.startActivity();
+                HouseSearchResultActivity.startActivity();
             }
         });
         result.setLayoutManager(new LinearLayoutManager(this));

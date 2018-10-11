@@ -3,12 +3,14 @@ package com.bthouse;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Process;
+
 import com.bthouse.adapter.MainTabAdapter;
 import com.bthouse.mvp.presenter.BasePresenter;
 import com.bthouse.ui.activity.BaseActivity;
 import com.bthouse.ui.fragment.BaseFragment;
 import com.bthouse.ui.fragment.FourFragment;
-import com.bthouse.ui.fragment.OneFragment;
+import com.bthouse.ui.fragment.SearchFragment;
 import com.bthouse.ui.fragment.ThreeFragment;
 import com.bthouse.ui.fragment.TwoFragment;
 import com.chaychan.library.BottomBarItem;
@@ -18,7 +20,6 @@ import com.chaychan.uikit.NoScrollViewPager;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.Bind;
-import flyn.Eyes;
 
 public class MainActivity extends BaseActivity {
     @Bind(R.id.vp_content)
@@ -46,7 +47,7 @@ public class MainActivity extends BaseActivity {
     @Override
     public void initData() {
         mFragments = new ArrayList<>();
-        mFragments.add(new OneFragment());
+        mFragments.add(new SearchFragment());
         mFragments.add(new TwoFragment());
         mFragments.add(new ThreeFragment());
         mFragments.add(new FourFragment());

@@ -11,6 +11,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
+        android:layout_margin="5dp"
         >
 
         <Button
@@ -19,24 +20,31 @@
             android:layout_height="15dp"
             android:layout_centerVertical="true"
             android:layout_gravity="left"
-            android:background="@mipmap/hhleftback"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/back"
+
             />
 
         <EditText
-            android:layout_width="fill_parent"
+            android:id="@+id/et_search_key"
+            android:layout_width="wrap_content"
             android:layout_height="35dp"
-            android:background="#F1F1F1"
-            android:layout_toRightOf="@+id/bt_back"
-            android:layout_margin="10dp"
-            android:hint="输入街区、城市或者学校名称"
-            android:textSize="@dimen/sp_12"
-            android:textColorHint="@color/hint_text_color"
-            android:padding="@dimen/dp_5"
             android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/bt_back"
+            android:background="@color/white"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            />
+            android:hint="输入街区、城市或者学校名称"
+            android:textSize="@dimen/sp_10" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="@dimen/dp_10"
+            android:background="@drawable/sssousuo"/>
+
 
     </RelativeLayout>
 
@@ -46,8 +54,9 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical"
-        android:layout_marginTop="10dp"
-        android:padding="5dp">
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        >
 
         <TextView
             android:layout_width="fill_parent"
