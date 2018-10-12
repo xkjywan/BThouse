@@ -11,9 +11,9 @@
     <dimen name="dp_40">40dp</dimen>
     <dimen name="dp_72">72dp</dimen>
 
-    <dimen name="sp_12">16sp</dimen>
-    <dimen name="sp_14">18sp</dimen>
-    <dimen name="sp_16">20sp</dimen>
+    <dimen name="sp_16">16sp</dimen>
+    <dimen name="sp_18">18sp</dimen>
+    <dimen name="sp_20">20sp</dimen>
 
     <dimen name="item_height">70dp</dimen>
 </resources>

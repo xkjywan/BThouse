@@ -25,7 +25,7 @@
             android:layout_marginLeft="@dimen/dp_4"
             android:text="@string/loading"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/sp_14"/>
+            android:textSize="@dimen/sp_18"/>
     </LinearLayout>
 
     <FrameLayout
