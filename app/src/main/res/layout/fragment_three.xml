@@ -16,7 +16,8 @@
         app:centerTvColor="@color/login_text_color"
         app:centerTvSize="@dimen/sp_18"
         app:centerTvString="收藏的房屋"
-        app:rightTvMarginright="@dimen/dp_20" />
+        app:rightTvMarginright="@dimen/dp_20"
+        app:showLeftImager="false"/>
 
     <include layout="@layout/split_line" />
 
