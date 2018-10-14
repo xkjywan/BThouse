@@ -71,6 +71,7 @@ public class CustomTextView extends RelativeLayout {
 
 
     private OnTextViewClickListener OnTextViewClickListener;
+    private boolean showLeftImager;
 
     public CustomTextView setOnTextViewClickListener(OnTextViewClickListener listener) {
         this.OnTextViewClickListener = listener;
@@ -130,6 +131,7 @@ public class CustomTextView extends RelativeLayout {
         leftBottomTvSize = typedArray.getDimensionPixelOffset(R.styleable.CustomTextView_leftBottomTvSize, 16);
         leftTopTvColor = typedArray.getColor(R.styleable.CustomTextView_leftTopTvColor, defaultTvColor);
         leftBottomTvColor = typedArray.getColor(R.styleable.CustomTextView_leftBottomTvColor, defaultTvColor);
+        showLeftImager = typedArray.getBoolean(R.styleable.CustomTextView_showLeftImager,true);
 
         typedArray.recycle();
     }
@@ -279,7 +281,14 @@ public class CustomTextView extends RelativeLayout {
     }
 
     private void initLeftImg() {
+
         leftIV = new ImageView(mContext);
+        if (showLeftImager){
+            leftIV.setVisibility(VISIBLE);
+        }else{
+            leftIV.setVisibility(GONE);
+        }
+
         int width = leftImgWidht != 0 ? leftImgWidht : LayoutParams.WRAP_CONTENT;
         int height = leftImgHeight != 0 ? leftImgHeight : LayoutParams.WRAP_CONTENT;
         LayoutParams leftImgParams = new LayoutParams(width, height);

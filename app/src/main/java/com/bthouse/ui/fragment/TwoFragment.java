@@ -14,6 +14,7 @@ import com.bthouse.mvp.presenter.SearchCollectPresenter;
 import com.bthouse.mvp.view.SearchCollectView;
 import com.bthouse.util.NetUtil;
 import com.bthouse.util.ToastUtil;
+import com.bthouse.view.CustomTextView;
 import com.chaychan.uikit.powerfulrecyclerview.PowerfulRecyclerView;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,9 @@ public class TwoFragment extends BaseFragment<SearchCollectPresenter> implements
 
     @Bind(R.id.rlv_collect)
     PowerfulRecyclerView rlv_collect;
+
+    @Bind(R.id.title_bar)
+    CustomTextView title_bar;
 
     private MainActivity mMainActivity;
 
@@ -65,6 +69,7 @@ public class TwoFragment extends BaseFragment<SearchCollectPresenter> implements
     @Override
     public void initView(View rootView) {
         super.initView(rootView);
+
 
 
     }

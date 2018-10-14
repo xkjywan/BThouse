@@ -38,6 +38,7 @@
         <attr name="leftBottomTvSize" format="dimension"/>
         <attr name="leftTopTvColor" format="color"/>
         <attr name="leftBottomTvColor" format="color"/>
+        <attr name="showLeftImager" format="boolean"/>
     </declare-styleable>
 
     <declare-styleable name="CircleImageView">

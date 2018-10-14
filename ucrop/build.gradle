@@ -28,7 +28,7 @@ android {
 
     resourcePrefix 'ucrop_'
 
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    buildToolsVersion '28.0.2'
 }
 
 dependencies {
