@@ -98,6 +98,15 @@ public interface ApiService {
     Observable<SearchCollectBean> getCollectList(
             @Field("userId") String userId);
 
+    //获取收藏的词条
+    @FormUrlEncoded
+    @POST("index.php?g=api&m=User&a=getMyWords")
+    Observable<SearchCollectBean> getMyWords(
+            @Field("id") String id,
+            @Field("num") String num,
+            @Field("token") String token,
+            @Field("p") String p
+
 
 }
 

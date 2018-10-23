@@ -70,8 +70,6 @@ public class TwoFragment extends BaseFragment<SearchCollectPresenter> implements
     public void initView(View rootView) {
         super.initView(rootView);
 
-
-
     }
 
     @Override
