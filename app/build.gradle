@@ -46,7 +46,6 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
 
-
 }
 
 dependencies {
@@ -80,6 +79,9 @@ dependencies {
      * 微信登录分享支付等。。
      */
     compile 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:+'
+    //引入hawk数据库
+    compile 'com.orhanobut:hawk:2.0.1'
+
 }
 
 

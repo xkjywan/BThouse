@@ -1,5 +1,6 @@
 package com.bthouse.ui.activity;
 
+import android.accounts.Account;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -144,6 +145,8 @@ public class PhoneRegistActivity extends BaseActivity<RegisterPresenter> impleme
                     }else{
                         mPresenter.FindPswByPhoneCode(et_username.getText().toString(),"+86",et_code.getText().toString());
                     }
+
+//                    Account.CREATOR(new Acc)
 
                 }else{
                     ToastUtil.show(this,"请输入正确的手机号");

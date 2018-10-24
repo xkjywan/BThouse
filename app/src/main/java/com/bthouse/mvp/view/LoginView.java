@@ -1,7 +1,7 @@
 package com.bthouse.mvp.view;
 
 
-import com.bthouse.mvp.module.IloginMoudle;
+import com.bthouse.mvp.module.UserModel;
 
 /**
  * @description: 获取各种频道广告的View回调接口
@@ -10,5 +10,5 @@ import com.bthouse.mvp.module.IloginMoudle;
 public interface LoginView {
     void  onFinish();
     void  onError();
-    void  onLoginSuc(IloginMoudle response);
+    void  onLoginSuc(UserModel response);
 }

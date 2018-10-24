@@ -2,6 +2,7 @@ package com.bthouse.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.UserManager;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import com.bthouse.MainActivity;
 import com.bthouse.R;
 import com.bthouse.config.ToastMsgConfig;
 import com.bthouse.mvp.module.IloginMoudle;
+import com.bthouse.mvp.module.UserModel;
 import com.bthouse.mvp.module.UserResponse;
 import com.bthouse.mvp.presenter.ILoginPresenter;
 import com.bthouse.mvp.presenter.LoginPresenter;
@@ -127,14 +129,11 @@ public class LoginActivity extends BaseActivity<ILoginPresenter> implements Logi
             return;
         }
         ToastUtil.show(LoginActivity.this, "登陆失败");
-
     }
 
     @Override
-    public void onLoginSuc(IloginMoudle response) {
-
-        IloginMoudle iloginMoudle = response;
-
+    public void onLoginSuc(UserModel response) {
+        com.bthouse.manager.UserManager.setUserModel(response);
     }
 
     /*@Override
