@@ -12,6 +12,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="AppTheme.Base">
         <item name="windowNoTitle">true</item>
+        <!--跳转动画设置-->
         <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
     </style>
 

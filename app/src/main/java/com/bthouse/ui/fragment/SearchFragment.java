@@ -14,14 +14,10 @@ import com.bthouse.mvp.presenter.LogoutPresenter;
 import com.bthouse.mvp.view.ILogoutView;
 import com.bthouse.ui.activity.SearchActivity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import butterknife.Bind;
 import butterknife.OnClick;
-import flyn.Eyes;
 
-public class OneFragment extends BaseFragment<LogoutPresenter> implements ILogoutView {
+public class SearchFragment extends BaseFragment<LogoutPresenter> implements ILogoutView {
     @Bind(R.id.search)
     LinearLayout search;
 
@@ -48,7 +44,7 @@ public class OneFragment extends BaseFragment<LogoutPresenter> implements ILogou
 
     @Override
     protected View initContentLayout(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_one, container, false);
+        return inflater.inflate(R.layout.fragment_search, container, false);
     }
 
     @Override
