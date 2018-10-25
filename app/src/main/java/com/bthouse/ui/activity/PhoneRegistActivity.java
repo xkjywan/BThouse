@@ -176,7 +176,7 @@ public class PhoneRegistActivity extends BaseActivity<RegisterPresenter> impleme
                         handler.sendMessage(msg);
                     }
                 }, 0, 1000);
-                    mPresenter.getPhoneCode(et_username.getText().toString(),"+86");
+                    mPresenter.getPhoneCode(et_username.getText().toString(),"+86","1");
 
                 break;
 

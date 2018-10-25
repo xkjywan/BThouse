@@ -157,7 +157,7 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
                 if (CheckUtil.checkEmail(et_username.getText())){
                     mPresenter.getEmailCode(et_username.getText().toString());
                 }else if(CheckUtil.checkPhoneNumber(et_username.getText())){
-                    mPresenter.getPhoneCode(et_username.getText().toString(),"+86");
+                    mPresenter.getPhoneCode(et_username.getText().toString(),"+86","1");
                  }
                 break;
             case R.id.et_code:

@@ -23,11 +23,16 @@ public interface ApiService {
     );
 
     //获取手机验证码
+    // phone  是  手机号码  1181066221@qq.com
+    //phone_type  是  手机号区域  +86，+61
+    //send_type  否  1 是邮箱注册 2 是找回密码 默认值为1 3 是修改密码
     @FormUrlEncoded
-    @POST("index.php?g=&m=Index&a=send_code2")
+    @POST("index.php?g=api&m=Home&a=send_smscode")
     Observable<ResultResponse<ResultResponse<Object>>> getPhoneCode(
             @Field("phone") String phone,
-            @Field("phone_type") String phone_type
+            @Field("phone_type") String phone_type,
+            @Field("send_type") String send_type
+
     );
 
     //获取邮箱验证码
@@ -45,7 +50,7 @@ public interface ApiService {
             @Field("email_code") String email_code
     );
 
-    //验证电话验证码　/index.php?g=api&m=Home&a=check_reg_phone
+    //验证电话验证码　/index.php?g=api&m=Home&a=check_reg_phone  index.php?g=api&m=Home&a=check_reg_phone
     @FormUrlEncoded
     @POST("index.php?g=api&m=Home&a=check_reg_phone")
     Observable<ResultResponse<ResultResponse<Object>>> checkPhoneCode(
