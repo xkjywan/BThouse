@@ -5,9 +5,9 @@ import android.content.Context;
 
 import com.bthouse.config.AppConfig;
 import com.bthouse.util.CrashHandler;
+//import com.orhanobut.hawk.Hawk;
+//import com.orhanobut.hawk.HawkBuilder;
 import com.orhanobut.hawk.Hawk;
-import com.orhanobut.hawk.HawkBuilder;
-import com.orhanobut.hawk.LogLevel;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
@@ -34,7 +34,9 @@ public class App extends Application {
         crashHandler.init(getApplicationContext());
 
         //Hawk数据库初始化
-        Hawk.init(context).build();
+        Hawk.init(this);
+
+    }
 
     public static Context getContext() {
         return mContext;

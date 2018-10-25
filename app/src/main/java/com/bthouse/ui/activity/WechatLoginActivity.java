@@ -120,7 +120,7 @@ public class WechatLoginActivity extends BaseActivity<LoginPresenter> implements
     public void onLoginSuc(UserResponse response) {
         if (null != response) {
             MainActivity.startActivity(WechatLoginActivity.this);
-            UserResponse user = mApp.getUserBean();
+           /* UserResponse user = mApp.getUserBean();
             user.setUserId(response.getUserId());
             user.setPhone(response.getPhone());
             user.setName(response.getName());
@@ -130,7 +130,7 @@ public class WechatLoginActivity extends BaseActivity<LoginPresenter> implements
             user.setRefereeRoleName(response.getRefereeRoleName());
             App.getInstance().setUserBean(user);
 
-            App.getInstance().getaCache().put("IsLogin","true");
+            App.getInstance().getaCache().put("IsLogin","true");*/
 
             PreferenceUtils.setPrefString(this, USER_NAME, response.getLoginName());
             finish();

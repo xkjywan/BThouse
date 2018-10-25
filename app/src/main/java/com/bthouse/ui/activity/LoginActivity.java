@@ -12,6 +12,7 @@ import com.bthouse.App;
 import com.bthouse.MainActivity;
 import com.bthouse.R;
 import com.bthouse.config.ToastMsgConfig;
+import com.bthouse.manager.UserDataManager;
 import com.bthouse.mvp.module.IloginMoudle;
 import com.bthouse.mvp.module.UserModel;
 import com.bthouse.mvp.module.UserResponse;
@@ -133,7 +134,7 @@ public class LoginActivity extends BaseActivity<ILoginPresenter> implements Logi
 
     @Override
     public void onLoginSuc(UserModel response) {
-        com.bthouse.manager.UserManager.setUserModel(response);
+        UserDataManager.setUserModel(response);
     }
 
     /*@Override

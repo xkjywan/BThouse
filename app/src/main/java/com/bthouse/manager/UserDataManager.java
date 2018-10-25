@@ -4,11 +4,11 @@ import com.bthouse.config.CacheKey;
 import com.bthouse.mvp.module.UserModel;
 import com.orhanobut.hawk.Hawk;
 
-    /**
+/**
      * 用户管理相关类
      */
 
-public class UserManager {
+public class UserDataManager {
 
     public static void setUserModel(UserModel userModel){
        Hawk.put(CacheKey.USER_ACCESS_TOKEN_KEY,userModel);

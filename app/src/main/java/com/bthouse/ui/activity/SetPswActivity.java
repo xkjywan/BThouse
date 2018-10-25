@@ -121,15 +121,13 @@ public class SetPswActivity extends BaseActivity<LoginPresenter> implements Ilog
             return;
         }
         ToastUtil.show(SetPswActivity.this, "登陆失败");
-
-
     }
 
     @Override
     public void onLoginSuc(UserResponse response) {
         if (null != response) {
             MainActivity.startActivity(SetPswActivity.this);
-            UserResponse user = mApp.getUserBean();
+           /* UserResponse user = mApp.getUserBean();
             user.setUserId(response.getUserId());
             user.setPhone(response.getPhone());
             user.setName(response.getName());
@@ -139,7 +137,7 @@ public class SetPswActivity extends BaseActivity<LoginPresenter> implements Ilog
             user.setRefereeRoleName(response.getRefereeRoleName());
             App.getInstance().setUserBean(user);
 
-            App.getInstance().getaCache().put("IsLogin","true");
+            App.getInstance().getaCache().put("IsLogin","true");*/
 
             finish();
         }
