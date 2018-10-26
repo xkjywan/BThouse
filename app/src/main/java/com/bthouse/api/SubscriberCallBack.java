@@ -22,7 +22,7 @@ public abstract class SubscriberCallBack<T> extends Subscriber<ResultResponse<T>
     public void onNext(ResultResponse response) {
         if(response!=null&&response.getCode()!=null) {
             String isSuccess = response.getCode();
-            if (isSuccess.equals("000000")) {
+            if (isSuccess.equals("0")) {
                 if(response.getData()!=null){
                     onSuccess((T) response.getData());
                 }else{

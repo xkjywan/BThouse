@@ -82,6 +82,12 @@ dependencies {
     //引入hawk数据库
     compile 'com.orhanobut:hawk:2.0.1'
 
+    //显示日志框架
+    debugCompile 'com.readystatesoftware.chuck:library:1.0.4'
+    releaseCompile 'com.readystatesoftware.chuck:library-no-op:1.0.4'
+
+
+
 }
 
 

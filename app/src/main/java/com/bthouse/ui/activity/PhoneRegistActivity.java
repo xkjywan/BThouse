@@ -95,9 +95,8 @@ public class PhoneRegistActivity extends BaseActivity<RegisterPresenter> impleme
                     getcode.setClickable(true);
                     getcode.setTextColor(Color.parseColor("#71AAF7"));
                     getcode.setText("重新获取");
-//                    tv_forgetpsw.setText("收不到短信验证码？语音获取验证码");
+                    number = 60;
                 } else if (msg.what == 4){
-//                    iv_code.setImageBitmap(bit);
                 }
                 return false;
             }

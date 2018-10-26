@@ -7,6 +7,8 @@ import com.bthouse.App;
 import com.bthouse.config.AppConfig;
 import com.bthouse.util.AppTools;
 import com.bthouse.util.NetUtil;
+import com.readystatesoftware.chuck.ChuckInterceptor;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -87,6 +89,7 @@ public class ApiRetrofit {
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(15, TimeUnit.SECONDS)
                 .writeTimeout(15, TimeUnit.SECONDS)
+                .addInterceptor(new ChuckInterceptor(App.getContext()))
                 .addInterceptor(loggingInterceptor)
                 .addInterceptor(new Interceptor() {
                     @Override

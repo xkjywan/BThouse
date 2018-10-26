@@ -53,7 +53,7 @@ public interface ApiService {
     //验证电话验证码　/index.php?g=api&m=Home&a=check_reg_phone  index.php?g=api&m=Home&a=check_reg_phone
     @FormUrlEncoded
     @POST("index.php?g=api&m=Home&a=check_reg_phone")
-    Observable<ResultResponse<ResultResponse<Object>>> checkPhoneCode(
+    Observable<ResultResponse> checkPhoneCode(
             @Field("phone") String phone,
             @Field("phone_type") String phone_type,
             @Field("phone_code") String phone_code
