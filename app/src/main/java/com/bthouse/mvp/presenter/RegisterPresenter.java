@@ -94,7 +94,7 @@ public class RegisterPresenter extends BasePresenter<RegisterView> {
     //phone_type  是  手机号区域  +86（中国），+61（澳大利亚）
     public void CheckcPhoneCode(String phone,String type,String code) {
 
-        addSubscription(mApiService.checkPhoneCode(phone,type,code), new SubscriberCallBack<data>() {
+        addSubscription(mApiService.checkPhoneCode(phone,type,code), new SubscriberCallBack() {
             @Override
             public void onCompleted() {
                 mView.onFinish();
@@ -106,9 +106,10 @@ public class RegisterPresenter extends BasePresenter<RegisterView> {
             }
 
             @Override
-            protected void onSuccess(data d) {
+            protected void onSuccess(Object response) {
                 mView.onCheckCodeSuccessed();
             }
+
 
             @Override
             protected void onError() {

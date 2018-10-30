@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.bthouse.App;
 import com.bthouse.MainActivity;
@@ -20,17 +21,21 @@ import com.bthouse.view.LoadingDialog;
 import com.jude.swipbackhelper.SwipeBackHelper;
 
 import butterknife.Bind;
+import butterknife.BindInt;
 import butterknife.OnClick;
 
 /**
  * 设置密码,昵称
  */
 public class SetPswActivity extends BaseActivity<LoginPresenter> implements IloginView {
-    @Bind(R.id.et_username)
-    EditText mEtUsername;
+    @Bind(R.id.et_psw)
+    EditText et_psw;
 
-    @Bind(R.id.et_passward)
-    EditText mEtPassword;
+    @Bind(R.id.et_psw_confirm)
+    EditText et_psw_confirm;
+
+    @Bind(R.id.tv_confirm)
+    TextView tv_confirm;
 
     @Bind(R.id.title_bar)
     CustomTextView customTextView;
@@ -56,7 +61,6 @@ public class SetPswActivity extends BaseActivity<LoginPresenter> implements Ilog
             public void OnLeftImgClick() {
                 super.OnLeftImgClick();
                 finish();
-                overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left);
             }
 
             @Override
@@ -64,7 +68,6 @@ public class SetPswActivity extends BaseActivity<LoginPresenter> implements Ilog
                 super.OnRightTvClick();
                 //注册
                 RegistActivity.startActivity();
-                overridePendingTransition(R.anim.in_from_right,R.anim.out_to_left);
             }
         });
     }

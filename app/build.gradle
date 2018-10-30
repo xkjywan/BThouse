@@ -86,6 +86,9 @@ dependencies {
     debugCompile 'com.readystatesoftware.chuck:library:1.0.4'
     releaseCompile 'com.readystatesoftware.chuck:library-no-op:1.0.4'
 
+    /*崩溃日志监听-页面化*/
+//    compile 'com.github.maning0303:MNCrashMonitor:V1.0.8'
+
 
 
 }
