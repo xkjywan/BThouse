@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.bthouse.App;
 import com.bthouse.R;
 import com.bthouse.mvp.presenter.RegisterPresenter;
-import com.bthouse.mvp.view.RegisterView;
+import com.bthouse.mvp.view.BaseView;
 import com.bthouse.util.CheckUtil;
 import com.bthouse.util.NetUtil;
 import com.bthouse.util.ToastUtil;
@@ -27,7 +27,7 @@ import java.util.TimerTask;
 import butterknife.Bind;
 import butterknife.OnClick;
 
-public class RegistActivity extends BaseActivity<RegisterPresenter> implements RegisterView {
+public class RegistActivity extends BaseActivity<RegisterPresenter> implements BaseView {
     @Bind(R.id.et_username)
     EditText et_username;
 
@@ -183,12 +183,10 @@ public class RegistActivity extends BaseActivity<RegisterPresenter> implements R
         ToastUtil.show(RegistActivity.this, "登陆失败");
     }
 
-
-
     @Override
-    public void onCheckCodeSuccessed() {
+    public void onSuccess() {
         //验证电话和邮箱验证码成功
-        SetPswActivity.startActivity("",et_username.getText().toString().trim());
+        SetPswActivity.startActivity("+86",et_username.getText().toString().trim());
 
     }
 

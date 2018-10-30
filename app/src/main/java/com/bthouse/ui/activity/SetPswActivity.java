@@ -12,13 +12,17 @@ import com.bthouse.MainActivity;
 import com.bthouse.R;
 import com.bthouse.mvp.module.UserResponse;
 import com.bthouse.mvp.presenter.LoginPresenter;
+import com.bthouse.mvp.presenter.SetPswPresenter;
 import com.bthouse.mvp.view.IloginView;
+import com.bthouse.mvp.view.SetPswView;
+import com.bthouse.util.CheckUtil;
 import com.bthouse.util.NetUtil;
 import com.bthouse.util.PreferenceUtils;
 import com.bthouse.util.ToastUtil;
 import com.bthouse.view.CustomTextView;
 import com.bthouse.view.LoadingDialog;
 import com.jude.swipbackhelper.SwipeBackHelper;
+import com.jude.swipbackhelper.Utils;
 
 import butterknife.Bind;
 import butterknife.BindInt;
@@ -27,7 +31,7 @@ import butterknife.OnClick;
 /**
  * 设置密码,昵称
  */
-public class SetPswActivity extends BaseActivity<LoginPresenter> implements IloginView {
+public class SetPswActivity extends BaseActivity<SetPswPresenter> implements SetPswView {
     @Bind(R.id.et_psw)
     EditText et_psw;
 
@@ -37,14 +41,17 @@ public class SetPswActivity extends BaseActivity<LoginPresenter> implements Ilog
     @Bind(R.id.tv_confirm)
     TextView tv_confirm;
 
+    @Bind(R.id.et_nickname)
+    EditText et_nickname;
+
     @Bind(R.id.title_bar)
     CustomTextView customTextView;
 
     public LoadingDialog mLoadingDialog;
 
     @Override
-    protected LoginPresenter createPresenter() {
-        return new LoginPresenter(this);
+    protected SetPswPresenter createPresenter() {
+        return new SetPswPresenter(this);
     }
 
     @Override
@@ -76,31 +83,21 @@ public class SetPswActivity extends BaseActivity<LoginPresenter> implements Ilog
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mLoadingDialog = new LoadingDialog(SetPswActivity.this, "");
-//        String userName = PreferenceUtils.getPrefString(this, USER_NAME, "");
-//        mEtUsername.setText(userName);
-//        mEtUsername.setSelection(userName.length());//将光标移至文字末尾
     }
 
-    @OnClick({R.id.tv_login, R.id.tv_forget_passward})
+    @OnClick({R.id.tv_confirm})
     public void Onclick(View v) {
         switch (v.getId()) {
-            case R.id.tv_login:
-                MainActivity.startActivity(this);
-                finish();
-
-                /*String userName = mEtUsername.getText().toString().trim();
-                String userPwd = mEtPassword.getText().toString().trim();
-                if (null == userName || userName.length() < 3) {
-                    ToastUtil.show(this, "请输入用户名");
-                    return;
+            case R.id.tv_confirm:
+                String type = getIntent().getStringExtra("type");
+                String username = getIntent().getStringExtra("username");
+                if (!et_psw.getText().toString().equals(et_psw_confirm.getText().toString()) && CheckUtil.isNull(et_psw.getText().toString())){
+                    ToastUtil.show(this,"密码请保持一致");
+                }else if(CheckUtil.isNull(et_nickname.getText().toString().trim())){
+                    ToastUtil.show(this,"请输入昵称");
+                }else{
+                    mPresenter.regphone(username,type,et_psw.getText().toString(),et_psw_confirm.getText().toString(),et_nickname.getText().toString());
                 }
-                if (null == userPwd || userPwd.length() < 6) {
-                    ToastUtil.show(this, "请输入用户密码6－12位");
-                    return;
-                }
-                if (mLoadingDialog != null)
-                    mLoadingDialog.show();
-                mPresenter.login(userName, userPwd);*/
                 break;
 
             case R.id.tv_forget_passward:
@@ -127,23 +124,13 @@ public class SetPswActivity extends BaseActivity<LoginPresenter> implements Ilog
     }
 
     @Override
-    public void onLoginSuc(UserResponse response) {
-        if (null != response) {
-            MainActivity.startActivity(SetPswActivity.this);
-           /* UserResponse user = mApp.getUserBean();
-            user.setUserId(response.getUserId());
-            user.setPhone(response.getPhone());
-            user.setName(response.getName());
-            user.setImgUrl(response.getImgUrl());
-            user.setLoginName(response.getLoginName());
-            user.setRefereeRole(response.getRefereeRole());
-            user.setRefereeRoleName(response.getRefereeRoleName());
-            App.getInstance().setUserBean(user);
+    public void onSuccess() {
 
-            App.getInstance().getaCache().put("IsLogin","true");*/
+    }
 
-            finish();
-        }
+    @Override
+    public void onSetPswSuc() {
+
     }
 
     /**

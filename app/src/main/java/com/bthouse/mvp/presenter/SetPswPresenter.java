@@ -2,18 +2,18 @@ package com.bthouse.mvp.presenter;
 
 import com.bthouse.api.SubscriberCallBack;
 import com.bthouse.mvp.module.data;
-import com.bthouse.mvp.view.RegisterView;
+import com.bthouse.mvp.view.SetPswView;
 
-public class SetPswPresenter extends BasePresenter<RegisterView> {
+public class SetPswPresenter extends BasePresenter<SetPswView> {
 
 
-    public SetPswPresenter(RegisterView view) {
+    public SetPswPresenter(SetPswView view) {
         super(view);
     }
 
-    public void getPhoneCode(String phone, String phone_type,String send_type) {
+    public void regphone(String phone, String phone_type,String user_pass,String re_user_pass,String user_nice_name ) {
 
-        addSubscription(mApiService.getPhoneCode(phone, phone_type,send_type), new SubscriberCallBack<data>() {
+        addSubscription(mApiService.reg_phone(phone, phone_type,user_pass,re_user_pass,user_nice_name), new SubscriberCallBack<data>() {
 
             @Override
             public void onCompleted() {
@@ -27,6 +27,7 @@ public class SetPswPresenter extends BasePresenter<RegisterView> {
 
             @Override
             protected void onSuccess(data d) {
+                mView.onSetPswSuc();
             }
 
             @Override

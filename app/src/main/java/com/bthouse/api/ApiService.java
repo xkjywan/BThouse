@@ -113,5 +113,16 @@ public interface ApiService {
             @Field("p") String p
     );
 
+
+    //手机号注册 index.php?g=api&m=Home&a=reg_phone
+    @FormUrlEncoded
+    @POST("index.php?g=api&m=Home&a=reg_phone")
+    Observable<SearchCollectBean> reg_phone(
+            @Field("phone") String phone,
+            @Field("phone_type") String phone_type,
+            @Field("user_pass") String user_pass,
+            @Field("re_user_pass") String re_user_pass,
+            @Field("user_nicename") String user_nicename
+    );
 }
 

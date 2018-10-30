@@ -17,7 +17,7 @@ import android.widget.TextView;
 import com.bthouse.App;
 import com.bthouse.R;
 import com.bthouse.mvp.presenter.RegisterPresenter;
-import com.bthouse.mvp.view.RegisterView;
+import com.bthouse.mvp.view.BaseView;
 import com.bthouse.util.CheckUtil;
 import com.bthouse.util.NetUtil;
 import com.bthouse.util.ToastUtil;
@@ -34,7 +34,7 @@ import butterknife.OnClick;
 /**
  * 邮箱注册页面
  */
-public class EmailRegistActivity extends BaseActivity<RegisterPresenter> implements RegisterView {
+public class EmailRegistActivity extends BaseActivity<RegisterPresenter> implements BaseView {
     @Bind(R.id.et_username)
     EditText et_username;
 
@@ -198,12 +198,10 @@ public class EmailRegistActivity extends BaseActivity<RegisterPresenter> impleme
         ToastUtil.show(EmailRegistActivity.this, "登陆失败");
     }
 
-
     @Override
-    public void onCheckCodeSuccessed() {
+    public void onSuccess() {
         //验证电话和邮箱验证码成功
         SetPswActivity.startActivity("",et_username.getText().toString().trim());
-
     }
 
 
@@ -212,6 +210,4 @@ public class EmailRegistActivity extends BaseActivity<RegisterPresenter> impleme
         intent.putExtra("isRegister",isRegister);
         App.getContext().startActivity(intent);
     }
-
-
 }

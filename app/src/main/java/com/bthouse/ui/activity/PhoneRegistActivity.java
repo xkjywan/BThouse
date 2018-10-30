@@ -1,6 +1,5 @@
 package com.bthouse.ui.activity;
 
-import android.accounts.Account;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -18,7 +17,7 @@ import android.widget.TextView;
 import com.bthouse.App;
 import com.bthouse.R;
 import com.bthouse.mvp.presenter.RegisterPresenter;
-import com.bthouse.mvp.view.RegisterView;
+import com.bthouse.mvp.view.BaseView;
 import com.bthouse.util.CheckUtil;
 import com.bthouse.util.NetUtil;
 import com.bthouse.util.ToastUtil;
@@ -36,7 +35,7 @@ import butterknife.OnClick;
  * 手机注册界面，找回密码界面
  */
 
-public class PhoneRegistActivity extends BaseActivity<RegisterPresenter> implements RegisterView {
+public class PhoneRegistActivity extends BaseActivity<RegisterPresenter> implements BaseView {
     @Bind(R.id.et_username)
     EditText et_username;
 
@@ -202,12 +201,10 @@ public class PhoneRegistActivity extends BaseActivity<RegisterPresenter> impleme
         ToastUtil.show(PhoneRegistActivity.this, "失败");
     }
 
-
     @Override
-    public void onCheckCodeSuccessed() {
+    public void onSuccess() {
         //验证电话和邮箱验证码成功
-        SetPswActivity.startActivity("",et_username.getText().toString().trim());
-
+        SetPswActivity.startActivity("+86",et_username.getText().toString().trim());
     }
 
 

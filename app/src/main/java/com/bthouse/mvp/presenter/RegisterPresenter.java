@@ -1,16 +1,13 @@
 package com.bthouse.mvp.presenter;
 
 import com.bthouse.api.SubscriberCallBack;
-import com.bthouse.mvp.module.UserResponse;
 import com.bthouse.mvp.module.data;
 import com.bthouse.mvp.view.BaseView;
-import com.bthouse.mvp.view.IloginView;
-import com.bthouse.mvp.view.RegisterView;
 
-public class RegisterPresenter extends BasePresenter<RegisterView> {
+public class RegisterPresenter extends BasePresenter<BaseView> {
 
 
-    public RegisterPresenter(RegisterView view) {
+    public RegisterPresenter(BaseView view) {
         super(view);
     }
 
@@ -80,7 +77,7 @@ public class RegisterPresenter extends BasePresenter<RegisterView> {
 
             @Override
             protected void onSuccess(data d) {
-                mView.onCheckCodeSuccessed();
+                mView.onSuccess();
             }
 
             @Override
@@ -107,7 +104,7 @@ public class RegisterPresenter extends BasePresenter<RegisterView> {
 
             @Override
             protected void onSuccess(Object response) {
-                mView.onCheckCodeSuccessed();
+                mView.onSuccess();
             }
 
 
@@ -134,7 +131,7 @@ public class RegisterPresenter extends BasePresenter<RegisterView> {
 
             @Override
             protected void onSuccess(data d) {
-                mView.onCheckCodeSuccessed();
+                mView.onSuccess();
             }
 
             @Override
@@ -161,7 +158,7 @@ public class RegisterPresenter extends BasePresenter<RegisterView> {
 
             @Override
             protected void onSuccess(data d) {
-                mView.onCheckCodeSuccessed();
+                mView.onSuccess();
             }
 
             @Override
